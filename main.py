@@ -1,20 +1,13 @@
 def medianOfArrays(arr1, arr2):
-  arrMax = arr2
-  arrMin = arr1
+  arr = arr1 + arr2
+  arr.sort()
+
+  if len(arr)%2 != 0:
+    median = arr[len(arr)//2]
   
-  if len(arr1) > len(arr2):
-    arrMax = arr1
-    arrMin = arr2
+  else:
+    median = (arr[len(arr)//2-1] + arr[len(arr)//2]) / 2
 
-  sum = 0
+  return median
 
-  for i in range(len(arrMax)):
-    if i >= len(arrMin):
-      sum += arrMax[i]
-    else:
-      sum += arrMax[i] + arrMin[i]
-
-  print(sum/(len(arrMax)+len(arrMin)))
-
-
-medianOfArrays([0, 0], [0, 0])
+print(medianOfArrays([1,3], [2, 7]))
